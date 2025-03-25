@@ -1,11 +1,11 @@
-VSDSquadron Reseacrh Internship 2025
+# VSDSquadron Research Internship 2025
 
-The program is based on the RISC-V architecture and uses open-source tools to teach people about VLSI chip design and RISC-V. The instructor for this internship is Kunal Ghosh Sir.
+## Overview
+The **VSDSquadron Research Internship 2025** focuses on **RISC-V architecture** and **open-source VLSI design**. The program provides hands-on experience in **chip design** using industry-standard open-source tools. The internship is led by **Kunal Ghosh Sir** and aims to bridge the gap between academia and industry in **VLSI and RISC-V**.
 
-Basic Details
-Name: CHANDRAKIRAN G
-College: St.Joseph's Institute Of Technology
-Email ID: gchandrakiran97@gmail.com
-GitHub Profile: https://github.com/Kiran-VLSI
-LinkedIN Profile: www.linkedin.com/in/chandrakiran-g-409816257
-
+## Internship Details
+- **Intern:** CHANDRAKIRAN G  
+- **College:** St. Joseph's Institute Of Technology  
+- **Email:** [gchandrakiran97@gmail.com](mailto:gchandrakiran97@gmail.com)  
+- **GitHub Profile:** [Kiran-VLSI](https://github.com/Kiran-VLSI)  
+- **LinkedIn Profile:** [Chandrakiran G](https://www.linkedin.com/in/chandrakiran-g-409816257)  
