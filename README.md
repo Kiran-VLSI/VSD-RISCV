@@ -1,7 +1,4 @@
-Here's a refined and complete version of your `README.md` file for the **VSDSquadron Research Internship 2025**:
-
-```markdown
-# VSDSquadron Research Internship 2025
+ VSDSquadron Research Internship 2025
 
 ## Overview
 
@@ -152,25 +149,25 @@ These tools are also required for simulation and synthesis:
 
 GTKWave is a waveform viewer for digital simulation outputs.
 
-```bash
+bash
 sudo apt-get install gtkwave
-```
+
 
 ### Yosys
 
 Yosys is an open-source RTL synthesis tool.
 
-```bash
+bash
 sudo apt-get install yosys
-```
+
 
 ### iVerilog
 
 iVerilog is a Verilog simulator used for compiling and simulating Verilog designs.
 
-```bash
+bash
 sudo apt-get install iverilog
-```
+
 
 ---
 
@@ -192,7 +189,6 @@ These tools are critical for your tasks involving RISC-V architecture, simulatio
 
 This setup guide is released under the MIT License. You are free to modify and distribute it as needed.
 
-```
 
 ### Key Points:
 - Structured into sections for readability and clarity.
