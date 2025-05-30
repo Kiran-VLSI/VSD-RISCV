@@ -1,4 +1,4 @@
- VSDSquadron Research Internship 2025
+ ### VSDSquadron Research Internship 2025
 
 ## Overview
 
@@ -199,263 +199,179 @@ Each instruction in RISC-V (RV32I) is **32 bits long** and conforms to one of si
 
 All these instructions follow the RISC-V instruction formats (R, I, S, B, U, J) and are encoded according to the RISC-V specification.
 
-1. addi sp, sp, -96
-addi (Add Immediate): Adds an immediate value to a register and stores the result in the destination register.
+# 🚀 RISC-V Instruction Decoding Reference
 
-Instruction: addi sp, sp, -96
-
-Opcode: 0010011 (7 bits)
-
-Immediate: -96 (12 bits, 111110100000)
-
-Destination Register (rd): sp (x2, 00010)
-
-Source Register (rs1): sp (x2, 00010)
-
-Function (funct3): 000 (3 bits)
-
-Binary Representation: 111110100000 00010 000 00010 0010011
-
-2. sd s3, 0(sp)
-sd (Store Doubleword): Stores a 64-bit value from a source register into memory.
-
-Instruction: sd s3, 0(sp)
-
-Opcode: 0100011 (7 bits)
-
-Immediate: 0 (12 bits, 000000000000; imm[11:5]=0000000, imm[4:0]=00000)
-
-Source Register (rs2): s3 (x19, 10011)
-
-Base Register (rs1): sp (x2, 00010)
-
-Function (funct3): 011 (3 bits)
-
-Binary Representation: 0000000 10011 00010 011 00000 0100011
-
-3. mv s3, a0
-mv (Move): Pseudo-instruction, translates to addi s3, a0, 0.
-
-Instruction: addi s3, a0, 0
-
-Opcode: 0010011 (7 bits)
-
-Immediate: 0 (12 bits, 000000000000)
-
-Destination Register (rd): s3 (x19, 10011)
-
-Source Register (rs1): a0 (x10, 01010)
-
-Function (funct3): 000 (3 bits)
-
-Binary Representation: 000000000000 01010 000 10011 0010011
-
-4. sd s4, 8(sp)
-sd (Store Doubleword): Stores a 64-bit value from a source register into memory.
-
-Instruction: sd s4, 8(sp)
-
-Opcode: 0100011 (7 bits)
-
-Immediate: 8 (12 bits, 000000001000; imm[11:5]=0000000, imm[4:0]=01000)
-
-Source Register (rs2): s4 (x20, 10100)
-
-Base Register (rs1): sp (x2, 00010)
-
-Function (funct3): 011 (3 bits)
-
-Binary Representation: 0000000 10100 00010 011 01000 0100011
-
-5. sd s5, 16(sp)
-sd (Store Doubleword): Stores a 64-bit value from a source register into memory.
-
-Instruction: sd s5, 16(sp)
-
-Opcode: 0100011 (7 bits)
-
-Immediate: 16 (12 bits, 000000010000; imm[11:5]=0000000, imm[4:0]=10000)
-
-Source Register (rs2): s5 (x21, 10101)
-
-Base Register (rs1): sp (x2, 00010)
-
-Function (funct3): 011 (3 bits)
-
-Binary Representation: 0000000 10101 00010 011 10000 0100011
-
-6. sd s6, 24(sp)
-sd (Store Doubleword): Stores a 64-bit value from a source register into memory.
-
-Instruction: sd s6, 24(sp)
-
-Opcode: 0100011 (7 bits)
-
-Immediate: 24 (12 bits, 000000011000; imm[11:5]=0000000, imm[4:0]=11000)
-
-Source Register (rs2): s6 (x22, 10110)
-
-Base Register (rs1): sp (x2, 00010)
-
-Function (funct3): 011 (3 bits)
-
-Binary Representation: 0000000 10110 00010 011 11000 0100011
-
-7. sd s7, 32(sp)
-sd (Store Doubleword): Stores a 64-bit value from a source register into memory.
-
-Instruction: sd s7, 32(sp)
-
-Opcode: 0100011 (7 bits)
-
-Immediate: 32 (12 bits, 000000100000; imm[11:5]=0000001, imm[4:0]=00000)
-
-Source Register (rs2): s7 (x23, 10111)
-
-Base Register (rs1): sp (x2, 00010)
-
-Function (funct3): 011 (3 bits)
-
-Binary Representation: 0000001 10111 00010 011 00000 0100011
-
-8. sd s8, 40(sp)
-sd (Store Doubleword): Stores a 64-bit value from a source register into memory.
-
-Instruction: sd s8, 40(sp)
-
-Opcode: 0100011 (7 bits)
-
-Immediate: 40 (12 bits, 000000101000; imm[11:5]=0000001, imm[4:0]=01000)
-
-Source Register (rs2): s8 (x24, 11000)
-
-Base Register (rs1): sp (x2, 00010)
-
-Function (funct3): 011 (3 bits)
-
-Binary Representation: 0000001 11000 00010 011 01000 0100011
-
-9. jal ra, <enornlz>
-jal (Jump and Link): Jumps to a target address and saves the return address.
-
-Instruction: jal ra, <enornlz>
-
-Opcode: 1101111 (7 bits)
-
-Destination Register (rd): ra (x1, 00001)
-
-Immediate: Encoded 20-bit offset (depends on target address)
-
-Binary Representation: [Depends on offset]
-
-10. sub s3, a0, a0
-sub (Subtract): Subtracts the second source register from the first and stores the result.
-
-Instruction: sub s3, a0, a0
-
-Opcode: 0110011 (7 bits)
-
-Destination Register (rd): s3 (x19, 10011)
-
-Source Register 1 (rs1): a0 (x10, 01010)
-
-Source Register 2 (rs2): a0 (x10, 01010)
-
-Function (funct3): 000 (3 bits)
-
-Function (funct7): 0100000 (7 bits)
-
-Binary Representation: 0100000 01010 01010 000 10011 0110011
-
-11. addi s2, sp, 52
-addi (Add Immediate): Adds an immediate value to a register and stores the result in the destination register.
-
-Instruction: addi s2, sp, 52
-
-Opcode: 0010011 (7 bits)
-
-Immediate: 52 (12 bits, 000000110100)
-
-Destination Register (rd): s2 (x18, 10010)
-
-Source Register (rs1): sp (x2, 00010)
-
-Function (funct3): 000 (3 bits)
-
-Binary Representation: 000000110100 00010 000 10010 0010011
-
-12. addi a5, s2, 78
-addi (Add Immediate): Adds an immediate value to a register and stores the result in the destination register.
-
-Instruction: addi a5, s2, 78
-
-Opcode: 0010011 (7 bits)
-
-Immediate: 78 (12 bits, 000001001110)
-
-Destination Register (rd): a5 (x15, 01111)
-
-Source Register (rs1): s2 (x18, 10010)
-
-Function (funct3): 000 (3 bits)
-
-Binary Representation: 000001001110 10010 000 01111 0010011
-
-13. sh zero, -2(a5)
-sh (Store Halfword): Stores a 16-bit value from a source register into memory.
-
-Instruction: sh zero, -2(a5)
-
-Opcode: 0100011 (7 bits)
-
-Immediate: -2 (12 bits, 111111111110; imm[11:5]=1111111, imm[4:0]=11110)
-
-Source Register (rs2): zero (x0, 00000)
-
-Base Register (rs1): a5 (x15, 01111)
-
-Function (funct3): 001 (3 bits)
-
-Binary Representation: 1111111 00000 01111 001 11110 0100011
-
-14. lhu a5, 0(a4)
-lhu (Load Halfword Unsigned): Loads a 16-bit unsigned value from memory into a register.
-
-Instruction: lhu a5, 0(a4)
-
-Opcode: 0000011 (7 bits)
-
-Immediate: 0 (12 bits, 000000000000)
-
-Destination Register (rd): a5 (x15, 01111)
-
-Base Register (rs1): a4 (x14, 01110)
-
-Function (funct3): 101 (3 bits)
-
-Binary Representation: 000000000000 01110 101 01111 0000011
-
-15. bne a5, a3, <etermain+0x158>
-bne (Branch Not Equal): Branches if rs1 ≠ rs2.
-
-Instruction: bne a5, a3, <etermain+0x158>
-
-Opcode: 1100011 (7 bits)
-
-Source Register 1 (rs1): a5 (x15, 01111)
-
-Source Register 2 (rs2): a3 (x13, 01101)
-
-Function (funct3): 001 (3 bits)
-
-Immediate: Encoded 12-bit offset (depends on branch target)
-
-Binary Representation: [Depends on offset]
-
-Note: Immediate fields and binary representations for branch and jump instructions depend on the actual target address and PC value. For pseudo-instructions like mv, the actual binary is that of the underlying instruction (e.g., addi with imm=0).
+It contains the decoding of 15 essential RISC-V assembly instructions. Each instruction includes its type, opcode, register usage, immediate value, and the full 32-bit binary encoding.
 
 ---
 
+## 🧠 Instruction Format Key
 
+| Field    | Meaning               |
+|----------|------------------------|
+| `rd`     | Destination Register   |
+| `rs1`    | Source Register 1      |
+| `rs2`    | Source Register 2      |
+| `imm`    | Immediate Value        |
+| `funct3` | Function 3 bits        |
+| `funct7` | Function 7 bits        |
+| `opcode` | Operation Code         |
 
+---
+
+## 🔧 Instructions and Encodings
+
+### 1. `addi sp, sp, -96`
+- **Type**: I-type  
+- **Opcode**: `0010011`  
+- **funct3**: `000`  
+- **rd / rs1**: x2 (sp)  
+- **imm**: -96 → `111110100000`  
+- **Binary**: `111110100000 00010 000 00010 0010011`
+
+---
+
+### 2. `sd s3, 0(sp)`
+- **Type**: S-type  
+- **Opcode**: `0100011`  
+- **funct3**: `011`  
+- **rs2**: x19 (s3), **rs1**: x2 (sp)  
+- **imm**: 0 → `0000000 00000`  
+- **Binary**: `0000000 10011 00010 011 00000 0100011`
+
+---
+
+### 3. `mv s3, a0` *(pseudo)* → `addi s3, a0, 0`
+- **Type**: I-type  
+- **Opcode**: `0010011`  
+- **funct3**: `000`  
+- **rs1**: x10 (a0), **rd**: x19 (s3)  
+- **imm**: 0 → `000000000000`  
+- **Binary**: `000000000000 01010 000 10011 0010011`
+
+---
+
+### 4. `sd s4, 8(sp)`
+- **Type**: S-type  
+- **Opcode**: `0100011`  
+- **funct3**: `011`  
+- **rs2**: x20 (s4), **rs1**: x2 (sp)  
+- **imm**: 8 → `0000000 01000`  
+- **Binary**: `0000000 10100 00010 011 01000 0100011`
+
+---
+
+### 5. `sd s5, 16(sp)`
+- **Type**: S-type  
+- **Opcode**: `0100011`  
+- **funct3**: `011`  
+- **rs2**: x21 (s5), **rs1**: x2 (sp)  
+- **imm**: 16 → `0000000 10000`  
+- **Binary**: `0000000 10101 00010 011 10000 0100011`
+
+---
+
+### 6. `sd s6, 24(sp)`
+- **Type**: S-type  
+- **Opcode**: `0100011`  
+- **funct3**: `011`  
+- **rs2**: x22 (s6), **rs1**: x2 (sp)  
+- **imm**: 24 → `0000000 11000`  
+- **Binary**: `0000000 10110 00010 011 11000 0100011`
+
+---
+
+### 7. `ld s3, 0(sp)`
+- **Type**: I-type  
+- **Opcode**: `0000011`  
+- **funct3**: `011`  
+- **rd**: x19 (s3), **rs1**: x2 (sp)  
+- **imm**: 0 → `000000000000`  
+- **Binary**: `000000000000 00010 011 10011 0000011`
+
+---
+
+### 8. `ld s4, 8(sp)`
+- **Type**: I-type  
+- **Opcode**: `0000011`  
+- **funct3**: `011`  
+- **rd**: x20 (s4), **rs1**: x2 (sp)  
+- **imm**: 8 → `000000001000`  
+- **Binary**: `000000001000 00010 011 10100 0000011`
+
+---
+
+### 9. `ld s5, 16(sp)`
+- **Type**: I-type  
+- **Opcode**: `0000011`  
+- **funct3**: `011`  
+- **rd**: x21 (s5), **rs1**: x2 (sp)  
+- **imm**: 16 → `000000010000`  
+- **Binary**: `000000010000 00010 011 10101 0000011`
+
+---
+
+### 10. `ld s6, 24(sp)`
+- **Type**: I-type  
+- **Opcode**: `0000011`  
+- **funct3**: `011`  
+- **rd**: x22 (s6), **rs1**: x2 (sp)  
+- **imm**: 24 → `000000011000`  
+- **Binary**: `000000011000 00010 011 10110 0000011`
+
+---
+
+### 11. `sub a0, a0, a1`
+- **Type**: R-type  
+- **Opcode**: `0110011`  
+- **funct3**: `000`, **funct7**: `0100000`  
+- **rd / rs1**: x10 (a0), **rs2**: x11 (a1)  
+- **Binary**: `0100000 01011 01010 000 01010 0110011`
+
+---
+
+### 12. `add a0, a0, a1`
+- **Type**: R-type  
+- **Opcode**: `0110011`  
+- **funct3**: `000`, **funct7**: `0000000`  
+- **rd / rs1**: x10 (a0), **rs2**: x11 (a1)  
+- **Binary**: `0000000 01011 01010 000 01010 0110011`
+
+---
+
+### 13. `beq a0, a1, label`
+- **Type**: B-type  
+- **Opcode**: `1100011`  
+- **funct3**: `000`  
+- **rs1**: x10 (a0), **rs2**: x11 (a1)  
+- **imm**: depends on label (e.g., `000000000100`)  
+- **Binary (example)**: `000000 01011 01010 000 00010 1100011`
+
+---
+
+### 14. `jal ra, offset`
+- **Type**: J-type  
+- **Opcode**: `1101111`  
+- **rd**: x1 (ra)  
+- **imm**: 20-bit offset to label (e.g., `00000000000000000010`)  
+- **Binary (example)**: `00000000000000000010 00001 1101111`
+
+---
+
+### 15. `jalr ra, 0(ra)`
+- **Type**: I-type  
+- **Opcode**: `1100111`  
+- **funct3**: `000`  
+- **rd**: x1 (ra), **rs1**: x1 (ra)  
+- **imm**: 0 → `000000000000`  
+- **Binary**: `000000000000 00001 000 00001 1100111`
+
+---
+
+## 📝 Notes
+- The immediate (`imm`) field is sign-extended where necessary.
+- Pseudo-instructions like `mv` are internally translated into base instructions (`addi` with zero immediate).
+- For branch (`beq`) and jump (`jal`) instructions, the immediate is calculated relative to the program counter (PC).
+
+---
 
