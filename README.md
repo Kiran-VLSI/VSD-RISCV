@@ -168,8 +168,8 @@ iVerilog is a Verilog simulator used for compiling and simulating Verilog design
 bash
 sudo apt-get install iverilog
 
-### Task 4: Task is to identify instruction type of all the given instructions with its exact 32 bits instruction code in the desired instruction type format
-###🧠 RISC-V Instruction Formats
+## Task 4: Task is to identify instruction type of all the given instructions with its exact 32 bits instruction code in the desired instruction type format
+🧠 RISC-V Instruction Formats
 
 This repository provides a complete reference for the six fundamental **RISC-V instruction formats** used in the RV32I base ISA. It’s designed to help students, engineers, and VLSI/Computer Architecture enthusiasts understand how each instruction type works at the bit level.
 
@@ -199,7 +199,7 @@ Each instruction in RISC-V (RV32I) is **32 bits long** and conforms to one of si
 
 All these instructions follow the RISC-V instruction formats (R, I, S, B, U, J) and are encoded according to the RISC-V specification.
 
-# 🚀 RISC-V Instruction Decoding Reference
+# 🚀 RISC-V Instructions
 
 It contains the decoding of 15 essential RISC-V assembly instructions. Each instruction includes its type, opcode, register usage, immediate value, and the full 32-bit binary encoding.
 
