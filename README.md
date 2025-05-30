@@ -168,8 +168,8 @@ iVerilog is a Verilog simulator used for compiling and simulating Verilog design
 bash
 sudo apt-get install iverilog
 
-#Task 4: Task is to identify instruction type of all the given instructions with its exact 32 bits instruction code in the desired instruction type format
-# 🧠 RISC-V Instruction Formats
+### Task 4: Task is to identify instruction type of all the given instructions with its exact 32 bits instruction code in the desired instruction type format
+###🧠 RISC-V Instruction Formats
 
 This repository provides a complete reference for the six fundamental **RISC-V instruction formats** used in the RV32I base ISA. It’s designed to help students, engineers, and VLSI/Computer Architecture enthusiasts understand how each instruction type works at the bit level.
 
@@ -195,450 +195,264 @@ Each instruction in RISC-V (RV32I) is **32 bits long** and conforms to one of si
 | J-type | Jump instructions                | Unconditional jumps (JAL)                 | rd               | 21-bit (signed)|
 
 ---
-**15 unique RISC-V instructions** and presented their machine code breakdowns.
+![png](https://github.com/user-attachments/assets/8c8d4fc9-1c9f-4f15-967f-c82341cfb365)
 
----
-![png](https://github.com/user-attachments/assets/efb31b2a-9483-462d-872f-57d073331366)
+All these instructions follow the RISC-V instruction formats (R, I, S, B, U, J) and are encoded according to the RISC-V specification.
 
-### ✅ **1. Instruction: `addi sp, sp, -96`**
+1. addi sp, sp, -96
+addi (Add Immediate): Adds an immediate value to a register and stores the result in the destination register.
 
-* **Machine Code**: `fa010113`
-* **Type**: I-Type
-* **Opcode**: `0010011`
-* **Immediate (-96)**: `111111101000`
-* **rs1 (sp = x2)**: `00010`
-* **funct3**: `000`
-* **rd (sp = x2)**: `00010`
+Instruction: addi sp, sp, -96
 
-| imm\[11:0]     | rs1     | funct3 | rd      | opcode    |
-| -------------- | ------- | ------ | ------- | --------- |
-| `111111101000` | `00010` | `000`  | `00010` | `0010011` |
+Opcode: 0010011 (7 bits)
 
----
+Immediate: -96 (12 bits, 111110100000)
 
-### ✅ **2. Instruction: `sd s0, 80(sp)`**
+Destination Register (rd): sp (x2, 00010)
 
-* **Machine Code**: `02813023`
-* **Type**: S-Type
-* **Opcode**: `0100011`
-* **funct3**: `011`
-* **rs1 (sp = x2)**: `00010`
-* **rs2 (s0 = x8)**: `01000`
-* **imm (80)**: `0000101 00000`
+Source Register (rs1): sp (x2, 00010)
 
-| imm\[11:5] | rs2     | rs1     | funct3 | imm\[4:0] | opcode    |
-| ---------- | ------- | ------- | ------ | --------- | --------- |
-| `0000101`  | `01000` | `00010` | `011`  | `00000`   | `0100011` |
+Function (funct3): 000 (3 bits)
 
----
+Binary Representation: 111110100000 00010 000 00010 0010011
 
-### ✅ **3. Instruction: `lhu a0, 2(a5)`**
+2. sd s3, 0(sp)
+sd (Store Doubleword): Stores a 64-bit value from a source register into memory.
 
-* **Machine Code**: `0027d703`
-* **Type**: I-Type
-* **Opcode**: `0000011`
-* **funct3**: `101`
-* **rd (a0 = x10)**: `01010`
-* **rs1 (a5 = x15)**: `01111`
-* **imm**: `000000000010`
+Instruction: sd s3, 0(sp)
 
-| imm\[11:0]     | rs1     | funct3 | rd      | opcode    |
-| -------------- | ------- | ------ | ------- | --------- |
-| `000000000010` | `01111` | `101`  | `01010` | `0000011` |
+Opcode: 0100011 (7 bits)
 
----
+Immediate: 0 (12 bits, 000000000000; imm[11:5]=0000000, imm[4:0]=00000)
 
-### ✅ **4. Instruction: `jal ra, 14280 <enorm1z>`**
+Source Register (rs2): s3 (x19, 10011)
 
-* **Machine Code**: `e7dfc0ef`
-* **Type**: J-Type
-* **Opcode**: `1101111`
-* **rd (ra = x1)**: `00001`
-* **imm** (split into 20-bit format): reverse engineered from address
+Base Register (rs1): sp (x2, 00010)
 
-\| imm\[20|10:1|11|19:12] | rd   | opcode   |
-\|------------------------|--------|------------|
-\| See address offset      | `00001` | `1101111` |
+Function (funct3): 011 (3 bits)
 
----
+Binary Representation: 0000000 10011 00010 011 00000 0100011
 
-### ✅ **5. Instruction: `mv s2, a0`**
+3. mv s3, a0
+mv (Move): Pseudo-instruction, translates to addi s3, a0, 0.
 
-* **Machine Code**: `00050913`
-* **Pseudo-instruction**: `addi s2, a0, 0`
-* **Type**: I-Type
+Instruction: addi s3, a0, 0
 
-| imm\[11:0]     | rs1     | funct3 | rd      | opcode    |
-| -------------- | ------- | ------ | ------- | --------- |
-| `000000000000` | `01010` | `000`  | `10010` | `0010011` |
+Opcode: 0010011 (7 bits)
 
----
+Immediate: 0 (12 bits, 000000000000)
 
-### ✅ **6. Instruction: `slli a0, a0, 3`**
+Destination Register (rd): s3 (x19, 10011)
 
-* **Machine Code**: `00351513`
-* **Type**: I-Type
-* **Opcode**: `0010011`
-* **funct3**: `001` (for SLLI)
-* **rd/rs1 (a0 = x10)**: `01010`
-* **shamt**: `000000000011`
+Source Register (rs1): a0 (x10, 01010)
 
-| shamt          | rs1     | funct3 | rd      | opcode    |
-| -------------- | ------- | ------ | ------- | --------- |
-| `000000000011` | `01010` | `001`  | `01010` | `0010011` |
+Function (funct3): 000 (3 bits)
 
----
+Binary Representation: 000000000000 01010 000 10011 0010011
 
-### ✅ **7. Instruction: `sw a4, -20(s0)`**
+4. sd s4, 8(sp)
+sd (Store Doubleword): Stores a 64-bit value from a source register into memory.
 
-* **Machine Code**: `fec42723`
-* **Type**: S-Type
-* **Opcode**: `0100011`
-* **funct3**: `010`
-* **rs1 (s0 = x8)**: `01000`
-* **rs2 (a4 = x14)**: `01110`
-* **imm (-20)**: Two's complement → `1111110 01100`
+Instruction: sd s4, 8(sp)
 
-| imm\[11:5] | rs2     | rs1     | funct3 | imm\[4:0] | opcode    |
-| ---------- | ------- | ------- | ------ | --------- | --------- |
-| `1111110`  | `01110` | `01000` | `010`  | `01100`   | `0100011` |
+Opcode: 0100011 (7 bits)
 
----
+Immediate: 8 (12 bits, 000000001000; imm[11:5]=0000000, imm[4:0]=01000)
 
-### ✅ **8. Instruction: `ld s1, 72(sp)`**
+Source Register (rs2): s4 (x20, 10100)
 
-* **Machine Code**: `04813483`
-* **Type**: I-Type
-* **Opcode**: `0000011`
-* **funct3**: `011`
-* **rs1 (sp = x2)**: `00010`
-* **rd (s1 = x9)**: `01001`
-* **imm (72)**: `00000001001000`
+Base Register (rs1): sp (x2, 00010)
 
-| imm\[11:0]       | rs1     | funct3 | rd      | opcode    |
-| ---------------- | ------- | ------ | ------- | --------- |
-| `00000001001000` | `00010` | `011`  | `01001` | `0000011` |
+Function (funct3): 011 (3 bits)
 
----
+Binary Representation: 0000000 10100 00010 011 01000 0100011
 
-### ✅ **9. Instruction: `bne a5, a4, <offset>`**
+5. sd s5, 16(sp)
+sd (Store Doubleword): Stores a 64-bit value from a source register into memory.
 
-* **Machine Code**: `00e78c63`
-* **Type**: B-Type
-* **Opcode**: `1100011`
-* **funct3**: `001`
-* **rs1 (a5 = x15)**: `01111`
-* **rs2 (a4 = x14)**: `01110`
-* **imm**: offset derived from instruction address
+Instruction: sd s5, 16(sp)
 
-\| imm\[12|10:5] | rs2   | rs1   | funct3 | imm\[4:1|11] | opcode   |
-\|---------------|--------|--------|---------|----------------|------------|
-\| \[based on PC] | `01110` | `01111` | `001`     | \[based on PC]  | `1100011` |
+Opcode: 0100011 (7 bits)
 
----
+Immediate: 16 (12 bits, 000000010000; imm[11:5]=0000000, imm[4:0]=10000)
 
-### ✅ **10. Instruction: `jalr a1, 0(a0)`**
+Source Register (rs2): s5 (x21, 10101)
 
-* **Machine Code**: `00058593`
-* **Type**: I-Type
-* **Opcode**: `1100111`
-* **funct3**: `000`
-* **rs1 (a0 = x10)**: `01010`
-* **rd (a1 = x11)**: `01011`
-* **imm**: `000000000000`
+Base Register (rs1): sp (x2, 00010)
 
----
+Function (funct3): 011 (3 bits)
 
-### ✅ **11. Instruction: `li a5, 2`**
+Binary Representation: 0000000 10101 00010 011 10000 0100011
 
-* **Machine Code**: `00200793`
-* **Pseudo-instruction**: `addi a5, zero, 2`
+6. sd s6, 24(sp)
+sd (Store Doubleword): Stores a 64-bit value from a source register into memory.
 
-| imm\[11:0]     | rs1     | funct3 | rd      | opcode    |
-| -------------- | ------- | ------ | ------- | --------- |
-| `000000000010` | `00000` | `000`  | `01111` | `0010011` |
+Instruction: sd s6, 24(sp)
 
----
+Opcode: 0100011 (7 bits)
 
-### ✅ **12. Instruction: `sub a4, s0, s2`**
+Immediate: 24 (12 bits, 000000011000; imm[11:5]=0000000, imm[4:0]=11000)
 
-* **Machine Code**: `41240533`
-* **Type**: R-Type
-* **Opcode**: `0110011`
-* **funct3**: `000`
-* **funct7**: `0100000` (for SUB)
-* **rs1 (s0 = x8)**: `01000`
-* **rs2 (s2 = x18)**: `10010`
-* **rd (a4 = x14)**: `01110`
+Source Register (rs2): s6 (x22, 10110)
 
-| funct7    | rs2     | rs1     | funct3 | rd      | opcode    |
-| --------- | ------- | ------- | ------ | ------- | --------- |
-| `0100000` | `10010` | `01000` | `000`  | `01110` | `0110011` |
+Base Register (rs1): sp (x2, 00010)
 
----
+Function (funct3): 011 (3 bits)
 
-### ✅ **13. Instruction: `slli a4, a4, 2`**
+Binary Representation: 0000000 10110 00010 011 11000 0100011
 
-* **Machine Code**: `00271713`
-* **Type**: I-Type
-* **Opcode**: `0010011`
-* **funct3**: `001`
-* **rd/rs1 (a4 = x14)**: `01110`
-* **shamt**: `000000000010`
+7. sd s7, 32(sp)
+sd (Store Doubleword): Stores a 64-bit value from a source register into memory.
 
----
+Instruction: sd s7, 32(sp)
 
-### ✅ **14. Instruction: `ld a1, 88(sp)`**
+Opcode: 0100011 (7 bits)
 
-* **Machine Code**: `05813583`
-* **Type**: I-Type
-* **Opcode**: `0000011`
-* **rd (a1 = x11)**: `01011`
-* **rs1 (sp = x2)**: `00010`
-* **funct3**: `011`
-* **imm**: `00000001011000`
+Immediate: 32 (12 bits, 000000100000; imm[11:5]=0000001, imm[4:0]=00000)
 
----
+Source Register (rs2): s7 (x23, 10111)
 
-### ✅ **15. Instruction: `sh a5, -24(a0)`**
+Base Register (rs1): sp (x2, 00010)
 
-* **Machine Code**: `fe9797a3`
-* **Type**: S-Type
-* **Opcode**: `0100011`
-* **funct3**: `001`
-* **rs1 (a0 = x10)**: `01010`
-* **rs2 (a5 = x15)**: `01111`
-* **imm (-24)**: `111111001000`
+Function (funct3): 011 (3 bits)
 
-| imm\[11:5] | rs2     | rs1     | funct3 | imm\[4:0] | opcode    |
-| ---------- | ------- | ------- | ------ | --------- | --------- |
-| `1111110`  | `01111` | `01010` | `001`  | `01000`   | `0100011` |
+Binary Representation: 0000001 10111 00010 011 00000 0100011
 
----
+8. sd s8, 40(sp)
+sd (Store Doubleword): Stores a 64-bit value from a source register into memory.
 
-**15 unique RISC-V instructions** and presented their code breakdown and Binary Representation.
+Instruction: sd s8, 40(sp)
 
----
+Opcode: 0100011 (7 bits)
 
-### **1. Instruction**: `addi sp, sp, -96`
+Immediate: 40 (12 bits, 000000101000; imm[11:5]=0000001, imm[4:0]=01000)
 
-**2. Breakdown**:
+Source Register (rs2): s8 (x24, 11000)
 
-* Opcode: `0010011`
-* funct3: `000`
-* rd (sp): `00010`
-* rs1 (sp): `00010`
-* imm (-96): `111111101000`
+Base Register (rs1): sp (x2, 00010)
 
-**3. Binary Representation**:
-`111111101000 00010 000 00010 0010011` → `fa010113`
+Function (funct3): 011 (3 bits)
 
----
+Binary Representation: 0000001 11000 00010 011 01000 0100011
 
-### **2. Instruction**: `sd s0, 80(sp)`
+9. jal ra, <enornlz>
+jal (Jump and Link): Jumps to a target address and saves the return address.
 
-**2. Breakdown**:
+Instruction: jal ra, <enornlz>
 
-* Opcode: `0100011`
-* funct3: `011`
-* rs1 (sp): `00010`
-* rs2 (s0): `01000`
-* imm (80): `0000101 00000`
+Opcode: 1101111 (7 bits)
 
-**3. Binary Representation**:
-`0000101 01000 00010 011 00000 0100011` → `02813023`
+Destination Register (rd): ra (x1, 00001)
 
----
+Immediate: Encoded 20-bit offset (depends on target address)
 
-### **3. Instruction**: `lhu a0, 2(a5)`
+Binary Representation: [Depends on offset]
 
-**2. Breakdown**:
+10. sub s3, a0, a0
+sub (Subtract): Subtracts the second source register from the first and stores the result.
 
-* Opcode: `0000011`
-* funct3: `101`
-* rd (a0): `01010`
-* rs1 (a5): `01111`
-* imm (2): `000000000010`
+Instruction: sub s3, a0, a0
 
-**3. Binary Representation**:
-`000000000010 01111 101 01010 0000011` → `0027d703`
+Opcode: 0110011 (7 bits)
 
----
+Destination Register (rd): s3 (x19, 10011)
 
-### **4. Instruction**: `jal ra, 14280 <enorm1z>`
+Source Register 1 (rs1): a0 (x10, 01010)
 
-**2. Breakdown**:
+Source Register 2 (rs2): a0 (x10, 01010)
 
-* Opcode: `1101111`
-* rd (ra): `00001`
-* imm: Offset to 14280 (represented over bits \[20|10:1|11|19:12])
+Function (funct3): 000 (3 bits)
 
-**3. Binary Representation**:
-`imm[20|10:1|11|19:12] 00001 1101111` → `e7dfc0ef`
+Function (funct7): 0100000 (7 bits)
 
----
+Binary Representation: 0100000 01010 01010 000 10011 0110011
 
-### **5. Instruction**: `mv s2, a0` (Pseudo: `addi s2, a0, 0`)
+11. addi s2, sp, 52
+addi (Add Immediate): Adds an immediate value to a register and stores the result in the destination register.
 
-**2. Breakdown**:
+Instruction: addi s2, sp, 52
 
-* Opcode: `0010011`
-* funct3: `000`
-* rd (s2): `10010`
-* rs1 (a0): `01010`
-* imm: `000000000000`
+Opcode: 0010011 (7 bits)
 
-**3. Binary Representation**:
-`000000000000 01010 000 10010 0010011` → `00050913`
+Immediate: 52 (12 bits, 000000110100)
 
----
+Destination Register (rd): s2 (x18, 10010)
 
-### **6. Instruction**: `slli a0, a0, 3`
+Source Register (rs1): sp (x2, 00010)
 
-**2. Breakdown**:
+Function (funct3): 000 (3 bits)
 
-* Opcode: `0010011`
-* funct3: `001`
-* rd/rs1 (a0): `01010`
-* shamt: `000000000011`
+Binary Representation: 000000110100 00010 000 10010 0010011
 
-**3. Binary Representation**:
-`000000000011 01010 001 01010 0010011` → `00351513`
+12. addi a5, s2, 78
+addi (Add Immediate): Adds an immediate value to a register and stores the result in the destination register.
 
----
+Instruction: addi a5, s2, 78
 
-### **7. Instruction**: `sw a4, -20(s0)`
+Opcode: 0010011 (7 bits)
 
-**2. Breakdown**:
+Immediate: 78 (12 bits, 000001001110)
 
-* Opcode: `0100011`
-* funct3: `010`
-* rs1 (s0): `01000`
-* rs2 (a4): `01110`
-* imm (-20): `111111001100` → split into `imm[11:5]=1111110`, `imm[4:0]=01100`
+Destination Register (rd): a5 (x15, 01111)
 
-**3. Binary Representation**:
-`1111110 01110 01000 010 01100 0100011` → `fec42723`
+Source Register (rs1): s2 (x18, 10010)
 
----
+Function (funct3): 000 (3 bits)
 
-### **8. Instruction**: `ld s1, 72(sp)`
+Binary Representation: 000001001110 10010 000 01111 0010011
 
-**2. Breakdown**:
+13. sh zero, -2(a5)
+sh (Store Halfword): Stores a 16-bit value from a source register into memory.
 
-* Opcode: `0000011`
-* funct3: `011`
-* rd (s1): `01001`
-* rs1 (sp): `00010`
-* imm: `00000001001000`
+Instruction: sh zero, -2(a5)
 
-**3. Binary Representation**:
-`00000001001000 00010 011 01001 0000011` → `04813483`
+Opcode: 0100011 (7 bits)
 
----
+Immediate: -2 (12 bits, 111111111110; imm[11:5]=1111111, imm[4:0]=11110)
 
-### **9. Instruction**: `bne a5, a4, offset`
+Source Register (rs2): zero (x0, 00000)
 
-**2. Breakdown**:
+Base Register (rs1): a5 (x15, 01111)
 
-* Opcode: `1100011`
-* funct3: `001`
-* rs1 (a5): `01111`
-* rs2 (a4): `01110`
-* imm: offset bits rearranged as `imm[12|10:5]` and `imm[4:1|11]`
+Function (funct3): 001 (3 bits)
 
-**3. Binary Representation**:
-`imm[12|10:5] 01110 01111 001 imm[4:1|11] 1100011` → `00e78c63`
+Binary Representation: 1111111 00000 01111 001 11110 0100011
 
----
+14. lhu a5, 0(a4)
+lhu (Load Halfword Unsigned): Loads a 16-bit unsigned value from memory into a register.
 
-### **10. Instruction**: `jalr a1, 0(a0)`
+Instruction: lhu a5, 0(a4)
 
-**2. Breakdown**:
+Opcode: 0000011 (7 bits)
 
-* Opcode: `1100111`
-* funct3: `000`
-* rd (a1): `01011`
-* rs1 (a0): `01010`
-* imm: `000000000000`
+Immediate: 0 (12 bits, 000000000000)
 
-**3. Binary Representation**:
-`000000000000 01010 000 01011 1100111` → `00058593`
+Destination Register (rd): a5 (x15, 01111)
 
----
+Base Register (rs1): a4 (x14, 01110)
 
-### **11. Instruction**: `li a5, 2` (Pseudo: `addi a5, zero, 2`)
+Function (funct3): 101 (3 bits)
 
-**2. Breakdown**:
+Binary Representation: 000000000000 01110 101 01111 0000011
 
-* Opcode: `0010011`
-* funct3: `000`
-* rd (a5): `01111`
-* rs1 (zero): `00000`
-* imm: `000000000010`
+15. bne a5, a3, <etermain+0x158>
+bne (Branch Not Equal): Branches if rs1 ≠ rs2.
 
-**3. Binary Representation**:
-`000000000010 00000 000 01111 0010011` → `00200793`
+Instruction: bne a5, a3, <etermain+0x158>
 
----
+Opcode: 1100011 (7 bits)
 
-### **12. Instruction**: `sub a4, s0, s2`
+Source Register 1 (rs1): a5 (x15, 01111)
 
-**2. Breakdown**:
+Source Register 2 (rs2): a3 (x13, 01101)
 
-* Opcode: `0110011`
-* funct7: `0100000`
-* funct3: `000`
-* rd (a4): `01110`
-* rs1 (s0): `01000`
-* rs2 (s2): `10010`
+Function (funct3): 001 (3 bits)
 
-**3. Binary Representation**:
-`0100000 10010 01000 000 01110 0110011` → `41240533`
+Immediate: Encoded 12-bit offset (depends on branch target)
 
----
+Binary Representation: [Depends on offset]
 
-### **13. Instruction**: `slli a4, a4, 2`
-
-**2. Breakdown**:
-
-* Opcode: `0010011`
-* funct3: `001`
-* rd/rs1 (a4): `01110`
-* shamt: `000000000010`
-
-**3. Binary Representation**:
-`000000000010 01110 001 01110 0010011` → `00271713`
-
----
-
-### **14. Instruction**: `ld a1, 88(sp)`
-
-**2. Breakdown**:
-
-* Opcode: `0000011`
-* funct3: `011`
-* rd (a1): `01011`
-* rs1 (sp): `00010`
-* imm: `00000001011000`
-
-**3. Binary Representation**:
-`00000001011000 00010 011 01011 0000011` → `05813583`
-
----
-
-### **15. Instruction**: `sh a5, -24(a0)`
-
-**2. Breakdown**:
-
-* Opcode: `0100011`
-* funct3: `001`
-* rs1 (a0): `01010`
-* rs2 (a5): `01111`
-* imm (-24): `111111001000` → split as `1111110` and `01000`
-
-**3. Binary Representation**:
-`1111110 01111 01010 001 01000 0100011` → `fe9797a3`
+Note: Immediate fields and binary representations for branch and jump instructions depend on the actual target address and PC value. For pseudo-instructions like mv, the actual binary is that of the underlying instruction (e.g., addi with imm=0).
 
 ---
 
