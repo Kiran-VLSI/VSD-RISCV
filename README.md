@@ -168,7 +168,7 @@ iVerilog is a Verilog simulator used for compiling and simulating Verilog design
 bash
 sudo apt-get install iverilog
 
-Task 4: Task is to identify instruction type of all the given instructions with its exact 32 bits instruction code in the desired instruction type format
+#Task 4: Task is to identify instruction type of all the given instructions with its exact 32 bits instruction code in the desired instruction type format
 # 🧠 RISC-V Instruction Formats
 
 This repository provides a complete reference for the six fundamental **RISC-V instruction formats** used in the RV32I base ISA. It’s designed to help students, engineers, and VLSI/Computer Architecture enthusiasts understand how each instruction type works at the bit level.
@@ -195,9 +195,10 @@ Each instruction in RISC-V (RV32I) is **32 bits long** and conforms to one of si
 | J-type | Jump instructions                | Unconditional jumps (JAL)                 | rd               | 21-bit (signed)|
 
 ---
-Based on the image you provided (a terminal view of RISC-V assembly with corresponding machine codes), I’ve extracted **15 unique RISC-V instructions** and presented their machine code breakdowns in the format you've requested.
+**15 unique RISC-V instructions** and presented their machine code breakdowns.
 
 ---
+![png](https://github.com/user-attachments/assets/efb31b2a-9483-462d-872f-57d073331366)
 
 ### ✅ **1. Instruction: `addi sp, sp, -96`**
 
@@ -415,7 +416,7 @@ Based on the image you provided (a terminal view of RISC-V assembly with corresp
 
 ---
 
-Here is the data in the requested format for 15 RISC-V instructions extracted from the image:
+**15 unique RISC-V instructions** and presented their code breakdown and Binary Representation.
 
 ---
 
