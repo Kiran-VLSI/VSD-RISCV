@@ -35,7 +35,6 @@ The first task is to install all the essential tools required for the internship
     1. [GTKWave](#gtkwave)
     2. [Yosys](#yosys)
     3. [iVerilog](#iverilog)
-4. [Conclusion](#conclusion)
 
 ---
 
