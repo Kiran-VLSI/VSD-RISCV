@@ -1,6 +1,5 @@
 
 
-### 🔹 **Definition:**
 
 **RISC-V** is an **open-standard**, **reduced instruction set computer (RISC)** **instruction set architecture (ISA)** designed to be **simple, modular, and extensible**. It provides a clean-slate, license-free ISA that supports both **academic exploration** and **industrial implementation**, making it ideal for custom processor and SoC designs.
 
