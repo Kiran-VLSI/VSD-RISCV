@@ -564,11 +564,11 @@ if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_3)) {
 #include "ch32v00x.h"
 #include "debug.h"
 
-/* PWM Output Mode Definition */
+ PWM Output Mode Definition 
 #define PWM_MODE1 0
 #define PWM_MODE2 1
 
-/* PWM Output Mode Selection */
+PWM Output Mode Selection 
 #define PWM_MODE PWM_MODE2
 
 // Function to initialize Timer1 Channel 1 for PWM output on PD2
@@ -629,7 +629,7 @@ void GPIO_Config(void)
     GPIO_Init(GPIOD, &GPIO_InitStructure);
 }
 
-// Main Function
+ // Main Function
 int main(void)
 {
     uint8_t GPIOInputStatus = 0;
