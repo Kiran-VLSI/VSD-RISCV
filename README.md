@@ -455,6 +455,11 @@ Analysing the Output Waveform of various instructions that we have covered in TA
 ![ISA-3](https://github.com/user-attachments/assets/052a3bbf-2475-4c67-9728-4494628cfede)
 
 # Instruction 4: OR R9, R2, R5
+![image](https://github.com/user-attachments/assets/6f585e9b-aaca-4169-853e-21f6746f75a4)
+
+# Instruction 5:XOR r10, r1, r4
+
+
 
 ---
 
