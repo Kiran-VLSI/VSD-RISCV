@@ -475,5 +475,97 @@ Analysing the Output Waveform of various instructions that we have covered in TA
 # Instruction 10: BEQ R0, R0, 15
 ![image](https://github.com/user-attachments/assets/787b48e3-b891-4b82-b2d7-0fe97e515e9e)
 
+### Task 6: Final Task of this internship is to implement any digital circuits using VSDSquadron Mini and check whether the building and uploading of C program file on RISCV processor works
+# 🚪 Smart Door Automation using CH32V003 RISC-V SoC
+
+## 📌 Overview
+
+The **Smart Door Automation** project demonstrates the integration of an **IR sensor** and **servo motor** with the **CH32V003 RISC-V microcontroller** to create a fully automated door system. This system detects the presence of a person using an infrared sensor and opens or closes the door accordingly using a servo motor, controlled by PWM signals from the RISC-V processor. It eliminates the need for manual intervention and offers a smart, secure, and energy-efficient access solution.
+
+---
+
+## 🔧 Components Required
+
+| Component          | Quantity |
+|--------------------|----------|
+| CH32V003 Development Board | 1 |
+| IR Sensor          | 1 |
+| Servo Motor (SG90) | 1 |
+| Breadboard         | 1 |
+| Jumper Wires       | As needed |
+| Power Supply (3.3V–5V) | 1 |
+
+---
+
+## 🔌 Circuit Connections
+
+### 🔲 IR Sensor to CH32V003
+| IR Sensor Pin | CH32V003 Pin |
+|---------------|--------------|
+| VCC           | VIN (3.3V/5V) |
+| OUT           | D3           |
+| GND           | GND          |
+
+### 🔄 Servo Motor to CH32V003
+| Servo Pin     | CH32V003 Pin |
+|---------------|--------------|
+| VCC (Red)     | VIN (5V)     |
+| PWM (Yellow)  | D2           |
+| GND (Brown)   | GND          |
+
+---
+
+## 🧠 How It Works
+
+1. The **IR sensor** detects the presence of an object (e.g., a person approaching).
+2. Its **digital output** goes high/low and is read by the CH32V003 through **GPIO D3**.
+3. The CH32V003 generates a **PWM signal** on **D2** to control the **servo motor**.
+4. The servo rotates to **open** the door when the object is detected and **closes** after a short delay.
+
+---
+Circuit Diagram:
+![image](https://github.com/user-attachments/assets/b901cd5a-1a4e-40c0-a475-51b3f9a58d1e)
+
+
+## 🖥️ Programming Guide
+
+1. **Include necessary headers:**
+   ```c
+   #include "ch32v00x.h"
+   #include "debug.h"
+
+2. Configure GPIOs:
+
+Set D3 as input (for IR sensor)
+
+Set D2 as PWM output (for Servo control)
+
+3. Generate PWM:
+Use a timer (e.g., TIM2) to generate a PWM signal with the correct duty cycle to rotate the servo to desired angles.
+
+Logic Example:
+
+c
+
+if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_3)) {
+    // Object detected
+    setServoAngle(90); // Open door
+} else {
+    setServoAngle(0); // Close door
+}
+
+Electrical Characteristics
+1. Component	Voltage Range	Interface
+2. CH32V003 MCU	1.8V – 3.6V	GPIO, PWM
+3. IR Sensor	3.3V / 5V	Digital OUT
+4. Servo Motor	4.8V – 6V	PWM control
+
+Applications
+1. Smart Home Automation
+2. Office Entry Systems
+3. Contactless Public Access Control
+4. DIY Robotics & IoT Projects
+
+
 ---
 
