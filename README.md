@@ -560,18 +560,18 @@ if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_3)) {
 # How to Program?
 # Implementation of Smart Door using IR sensor and servo motor
 // main.c
-
+```c
 #include "ch32v00x.h"
 #include "debug.h"
 
- PWM Output Mode Definition 
+/* PWM Output Mode Definition */
 #define PWM_MODE1 0
 #define PWM_MODE2 1
 
-PWM Output Mode Selection 
+/* PWM Output Mode Selection */
 #define PWM_MODE PWM_MODE2
 
-// Function to initialize Timer1 Channel 1 for PWM output on PD2
+// Initialize Timer1 Channel 1 (PD2) for PWM output
 void TIM1_PWMOut_Init(uint16_t arr, uint16_t psc, uint16_t ccp)
 {
     GPIO_InitTypeDef GPIO_InitStructure = {0};
@@ -580,8 +580,8 @@ void TIM1_PWMOut_Init(uint16_t arr, uint16_t psc, uint16_t ccp)
 
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE);
 
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2; // PD2 - TIM1_CH1
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; // Alternate Function Push-Pull
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
     GPIO_Init(GPIOD, &GPIO_InitStructure);
 
@@ -610,26 +610,25 @@ void TIM1_PWMOut_Init(uint16_t arr, uint16_t psc, uint16_t ccp)
     TIM_Cmd(TIM1, ENABLE);
 }
 
-// GPIO Configuration
+// GPIO Configuration for IR input (PD3) and LED output (PD6)
 void GPIO_Config(void)
 {
     GPIO_InitTypeDef GPIO_InitStructure = {0};
-
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE);
 
-    // PD3 - Input (IR Sensor OUT)
+    // IR Sensor input (PD3)
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; // Input Pull-Up
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
     GPIO_Init(GPIOD, &GPIO_InitStructure);
 
-    // PD6 - Output (LED Indicator)
+    // LED output (PD6)
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOD, &GPIO_InitStructure);
 }
 
- // Main Function
+// Main program
 int main(void)
 {
     uint8_t GPIOInputStatus = 0;
@@ -643,35 +642,27 @@ int main(void)
     {
         GPIOInputStatus = GPIO_ReadInputDataBit(GPIOD, GPIO_Pin_3);
 
-        if (GPIOInputStatus == 0) // Object Detected
+        if (GPIOInputStatus == 0)
         {
-            GPIO_WriteBit(GPIOD, GPIO_Pin_6, SET); // Turn ON LED
-            TIM1_PWMOut_Init(100, 480 - 1, 10);    // 10% duty cycle
+            GPIO_WriteBit(GPIOD, GPIO_Pin_6, SET);    // Turn ON LED
+            TIM1_PWMOut_Init(100, 480 - 1, 10);        // 10% duty cycle
         }
-        else // No Object Detected
+        else
         {
-            GPIO_WriteBit(GPIOD, GPIO_Pin_6, RESET); // Turn OFF LED
-            TIM1_PWMOut_Init(100, 480 - 1, 95);      // 95% duty cycle
+            GPIO_WriteBit(GPIOD, GPIO_Pin_6, RESET);  // Turn OFF LED
+            TIM1_PWMOut_Init(100, 480 - 1, 95);        // 95% duty cycle
         }
 
         Delay_Ms(100);
     }
 }
 
-// Exception Handlers
-void NMI_Handler(void)
-{
-}
+// Interrupt Handlers
+void NMI_Handler(void) {}
+void HardFault_Handler(void) { while (1); }
 
-void HardFault_Handler(void)
-{
-    while (1)
-    {
-    }
-}
-
- 
-## Electrical Characteristics
+```
+# Electrical Characteristics
 1. Component	Voltage Range	Interface
 2. CH32V003 MCU	1.8V – 3.6V	GPIO, PWM
 3. IR Sensor	3.3V / 5V	Digital OUT
