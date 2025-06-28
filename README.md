@@ -451,6 +451,8 @@ Analysing the Output Waveform of various instructions that we have covered in TA
 # Instruction 2: SUB R7, R1, R2
 ![image](https://github.com/user-attachments/assets/f2abaf97-402c-4801-ba3f-976807b9c4cf)
 
+# Instruction 3: AND R8, R1, R3
+![image](https://github.com/user-attachments/assets/052a3bbf-2475-4c67-9728-4494628cfede)
 
 
 ---
