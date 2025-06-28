@@ -549,9 +549,12 @@ Logic Example:
 c
 
 if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_3)) {
+
     // Object detected
     setServoAngle(90); // Open door
+
 } else {
+
     setServoAngle(0); // Close door
 }
 
