@@ -455,11 +455,22 @@ Analysing the Output Waveform of various instructions that we have covered in TA
 ![ISA-3](https://github.com/user-attachments/assets/052a3bbf-2475-4c67-9728-4494628cfede)
 
 # Instruction 4: OR R9, R2, R5
-![image](https://github.com/user-attachments/assets/6f585e9b-aaca-4169-853e-21f6746f75a4)
+![image](https://github.com/user-attachments/assets/8c7fa91c-7cf4-477a-94e3-ec6db1a39001)
 
 # Instruction 5:XOR r10, r1, r4
+![image](https://github.com/user-attachments/assets/b577c87d-a145-4742-ad68-f108a577223e)
+
+# Instruction 6: SLT R11, R2, R4
+![image](https://github.com/user-attachments/assets/a7c0ad83-7126-4189-8d40-dc7ce7162ae7)
+
+# Instruction 7: ADDI R12, R4, 5
+![ISA-6](https://github.com/user-attachments/assets/3e4d3828-5a35-45ff-becf-f79f0eb6b771)
+
+# Instruction 8: LW R13, R1, 2
 
 
+# Instruction 9: BEQ R0, R0, 15
+![image](https://github.com/user-attachments/assets/787b48e3-b891-4b82-b2d7-0fe97e515e9e)
 
 ---
 
