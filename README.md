@@ -466,10 +466,13 @@ Analysing the Output Waveform of various instructions that we have covered in TA
 # Instruction 7: ADDI R12, R4, 5
 ![ISA-6](https://github.com/user-attachments/assets/3e4d3828-5a35-45ff-becf-f79f0eb6b771)
 
-# Instruction 8: LW R13, R1, 2
+# Instruction 8: SW R3, R1, 2
+![image](https://github.com/user-attachments/assets/589b4bbc-c6b7-4fe9-a5e1-a5aa57ed71cc)
 
+# Instruction 9: LW R13, R1, 2
+![image](https://github.com/user-attachments/assets/7424fe1a-54c5-4163-b286-4783a5f0a5b0)
 
-# Instruction 9: BEQ R0, R0, 15
+# Instruction 10: BEQ R0, R0, 15
 ![image](https://github.com/user-attachments/assets/787b48e3-b891-4b82-b2d7-0fe97e515e9e)
 
 ---
