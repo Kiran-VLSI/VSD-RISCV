@@ -401,10 +401,6 @@ touch kiran_riscv32i_tb.v
 * Open `kiran_riscv32i.v` and paste or verify the RISC-V core code.
 * In `kiran_riscv32i_tb.v`, write the testbench code.
 
-Example Instructions:
-![Instructions](https://github.com/user-attachments/assets/f704ff6a-7f67-4fd4-83d1-2df430144d5f)
-
-
 ```verilog
 initial begin
   $dumpfile("kiran_riscv32i.vcd");
@@ -431,6 +427,22 @@ iverilog -o kiran_riscv32i kiran_riscv32i.v kiran_riscv32i_tb.v
 ```bash
 gtkwave kiran_riscv32i.vcd
 ```
+This table compares a set of basic RISC-V RV32I instructions with their corresponding hardcoded instruction encodings used in a Verilog-based instruction memory model. The Standard RISC-V ISA column shows the official binary encodings, while the Hardcoded ISA column lists the values manually assigned in memory during simulation.
+
+| Operation         | Standard RISC-V ISA | Hardcoded ISA     |
+|-------------------|---------------------|-------------------|
+| ADD R6, R2, R1     | 32'h00110333        | 32'h02208300      |
+| SUB R7, R1, R2     | 32'h402083b3        | 32'h02209380      |
+| AND R8, R1, R3     | 32'h0030f433        | 32'h0230a400      |
+| OR R9, R2, R5      | 32'h005164b3        | 32'h02513480      |
+| XOR R10, R1, R4    | 32'h0040c533        | 32'h0240c500      |
+| SLT R11, R2, R4    | 32'h0045a0b3        | 32'h02415580      |
+| ADDI R12, R4, 5    | 32'h00520613        | 32'h00520600      |
+| SW R3, 2(R1)       | 32'h0020a023        | 32'h00209181      |
+| LW R13, 2(R1)      | 32'h0020a283        | 32'h00208681      |
+| BEQ R0, R0, 15     | 32'h00f00063        | 32'h00f00002      |
+| ADD R14, R2, R2    | 32'h002107b3        | 32'h00210700      |
+
 
 ---
 
