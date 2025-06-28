@@ -445,7 +445,7 @@ This table compares a set of basic RISC-V RV32I instructions with their correspo
 
 Analysing the Output Waveform of various instructions that we have covered in TASK-2
 
-Instruction 1: ADD R6, R1, R2
+# Instruction 1: ADD R6, R1, R2
 ![ISA-1](https://github.com/user-attachments/assets/f5d81e6a-100c-4a6f-a9b7-2f235294de24)
 
 
