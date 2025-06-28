@@ -449,11 +449,12 @@ Analysing the Output Waveform of various instructions that we have covered in TA
 ![ISA-1](https://github.com/user-attachments/assets/f5d81e6a-100c-4a6f-a9b7-2f235294de24)
 
 # Instruction 2: SUB R7, R1, R2
-![image](https://github.com/user-attachments/assets/f2abaf97-402c-4801-ba3f-976807b9c4cf)
+![ISA-2](https://github.com/user-attachments/assets/f2abaf97-402c-4801-ba3f-976807b9c4cf)
 
 # Instruction 3: AND R8, R1, R3
-![image](https://github.com/user-attachments/assets/052a3bbf-2475-4c67-9728-4494628cfede)
+![ISA-3](https://github.com/user-attachments/assets/052a3bbf-2475-4c67-9728-4494628cfede)
 
+# Instruction 4: OR R9, R2, R5
 
 ---
 
