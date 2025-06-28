@@ -401,7 +401,7 @@ touch kiran_riscv32i_tb.v
 * Open `kiran_riscv32i.v` and paste or verify the RISC-V core code.
 * In `kiran_riscv32i_tb.v`, write the testbench code.
 
-Example snippet for your testbench to generate waveforms:
+Example Instructions:
 ![Instructions](https://github.com/user-attachments/assets/f704ff6a-7f67-4fd4-83d1-2df430144d5f)
 
 
