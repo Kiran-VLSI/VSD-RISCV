@@ -443,6 +443,12 @@ This table compares a set of basic RISC-V RV32I instructions with their correspo
 | BEQ R0, R0, 15     | 32'h00f00063        | 32'h00f00002      |
 | ADD R14, R2, R2    | 32'h002107b3        | 32'h00210700      |
 
+Analysing the Output Waveform of various instructions that we have covered in TASK-2
+
+Instruction 1: ADD R6, R1, R2
+![ISA-1](https://github.com/user-attachments/assets/f5d81e6a-100c-4a6f-a9b7-2f235294de24)
+
+
 
 ---
 
