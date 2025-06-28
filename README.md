@@ -374,11 +374,10 @@ It contains the decoding of 15 essential RISC-V assembly instructions. Each inst
 
 ---
 ## Task - 5:By making use of RISCV Core: Verilog Netlist and Testbench, perform an experiment of Functional Simulation and observe the waveforms
-It looks like you're referring to a file named `kiran_riscv32i.v4`. Here's how you can proceed assuming it's your **Verilog file** for the RV32I core:
 
 ---
 
-### ✅ Updated Steps for `kiran_riscv32i.v4` (Assuming Verilog file)
+### ✅ Updated Steps for `kiran_riscv32i.v` (Assuming Verilog file)
 
 #### 🗂️ **1. Create Project Directory**
 
@@ -434,6 +433,4 @@ gtkwave kiran_riscv32i.vcd
 ```
 
 ---
-
-=
 
