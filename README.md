@@ -373,4 +373,67 @@ It contains the decoding of 15 essential RISC-V assembly instructions. Each inst
 - For branch (`beq`) and jump (`jal`) instructions, the immediate is calculated relative to the program counter (PC).
 
 ---
+## Task - 5:By making use of RISCV Core: Verilog Netlist and Testbench, perform an experiment of Functional Simulation and observe the waveforms
+It looks like you're referring to a file named `kiran_riscv32i.v4`. Here's how you can proceed assuming it's your **Verilog file** for the RV32I core:
+
+---
+
+### ✅ Updated Steps for `kiran_riscv32i.v4` (Assuming Verilog file)
+
+#### 🗂️ **1. Create Project Directory**
+
+```bash
+mkdir kiran_riscv_project
+cd kiran_riscv_project
+```
+
+#### 🧾 **2. Create Required Files**
+
+Rename or create the Verilog and testbench files:
+
+```bash
+cp /path/to/kiran_riscv32i.v4 kiran_riscv32i.v
+touch kiran_riscv32i_tb.v
+```
+
+
+#### 🧠 **3. Add Code**
+
+* Open `kiran_riscv32i.v` and paste or verify the RISC-V core code.
+* In `kiran_riscv32i_tb.v`, write the testbench code.
+
+Example snippet for your testbench to generate waveforms:
+![Instructions](https://github.com/user-attachments/assets/f704ff6a-7f67-4fd4-83d1-2df430144d5f)
+
+
+```verilog
+initial begin
+  $dumpfile("kiran_riscv32i.vcd");
+  $dumpvars(0, testbench_top);
+end
+```
+
+> Replace `testbench_top` with the top module name of your testbench.
+
+---
+
+#### ⚙️ **4. Compile & Simulate**
+
+```bash
+iverilog -o kiran_riscv32i kiran_riscv32i.v kiran_riscv32i_tb.v
+./kiran_riscv32i
+```
+
+---
+
+#### 📊 **5. View in GTKWave**
+![GTKWave Window](https://github.com/user-attachments/assets/7dcdcd8e-b803-4e60-b2bb-79e3561eb20a)
+
+```bash
+gtkwave kiran_riscv32i.vcd
+```
+
+---
+
+=
 
