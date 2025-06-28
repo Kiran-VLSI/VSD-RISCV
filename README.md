@@ -523,7 +523,8 @@ The **Smart Door Automation** project demonstrates the integration of an **IR se
 4. The servo rotates to **open** the door when the object is detected and **closes** after a short delay.
 
 ---
-Circuit Diagram:
+## Circuit Diagram:
+
 ![image](https://github.com/user-attachments/assets/b901cd5a-1a4e-40c0-a475-51b3f9a58d1e)
 
 
