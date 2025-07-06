@@ -11,7 +11,7 @@ The **VSDSquadron Research Internship 2025** focuses on **RISC-V architecture** 
 - **GitHub Profile:** [Kiran-VLSI](https://github.com/Kiran-VLSI)  
 - **LinkedIn Profile:** [Chandrakiran G](https://www.linkedin.com/in/chandrakiran-g-409816257)  
 
-## Task 1: Tool Installation
+# Task 1: Tool Installation
 
 The first task is to install all the essential tools required for the internship:
 1. **Ubuntu on VirtualBox** – Setting up a Linux environment for development.
