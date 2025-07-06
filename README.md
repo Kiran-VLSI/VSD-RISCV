@@ -814,6 +814,12 @@ https://github.com/user-attachments/assets/25d2b402-13ba-4860-865c-f68dde87ee96
 3. Contactless Public Access Control
 4. DIY Robotics & IoT Projects
 
+# Acknowledgement
+I would like to extend my sincere gratitude to VSDOpen, Kunal Ghosh Sir, and the entire VSDSquadron team for organizing this impactful and technically enriching internship. The opportunity to work on RISC-V architecture, explore open-source EDA tools, and implement real-world VLSI and embedded systems projects has significantly strengthened my understanding of the core concepts and workflows in the silicon industry.
+
+I also thank my peers, community contributors, and mentors whose discussions and shared resources helped me debug, learn, and grow throughout this journey.
+
+This internship has bridged the gap between academia and industry, and I am excited to continue contributing to the open-source VLSI ecosystem.
 
 ---
 
