@@ -669,6 +669,9 @@ void HardFault_Handler(void) { while (1); }
 3. IR Sensor	3.3V / 5V	Digital OUT
 4. Servo Motor	4.8V – 6V	PWM control
 
+# Application Video
+https://github.com/user-attachments/assets/25d2b402-13ba-4860-865c-f68dde87ee96
+
 ## Applications
 1. Smart Home Automation
 2. Office Entry Systems
