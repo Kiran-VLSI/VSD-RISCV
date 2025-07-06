@@ -166,13 +166,24 @@ iVerilog is a Verilog simulator used for compiling and simulating Verilog design
 
 bash
 sudo apt-get install iverilog
+# Task 2: Task is to identify instruction type of all the given instructions with its exact 32 bits instruction code in the desired instruction type format
 
-## Task 4: Task is to identify instruction type of all the given instructions with its exact 32 bits instruction code in the desired instruction type format
-🧠 RISC-V Instruction Formats
+WHAT IS RISC-V?
+RISC-V is an open-source instruction set architecture (ISA) that allows developers to develop processors for specific applications.
+RISC-V is based on reduced instruction set computer principles and is the fifth generation of processors built on this concept.
+RISC-V can also be understood as an alternative processor technology which is free and open, meaning that it does not require you to purchase the license of RISC-V to use it.
+INSTRUCTIONS FORMAT IN RISC-V
 
-This repository provides a complete reference for the six fundamental **RISC-V instruction formats** used in the RV32I base ISA. It’s designed to help students, engineers, and VLSI/Computer Architecture enthusiasts understand how each instruction type works at the bit level.
+The instructions format of a processor is the way in which machine language instructions are structured and organized for a processor to execute. It is made up of series of 0s and 1s, each containing information about the location and operation of data.
+There are 6 instruction formats in RISC-V:
 
----
+R-format
+I-format
+S-format
+B-format
+U-format
+J-format
+![326074466-f8e6fd22-79c5-4f6c-b59f-2b38fdb62c0e](https://github.com/user-attachments/assets/f2e7d18a-ccf6-470c-b3d5-8f26c8f1daa1)
 
 ## 📘 About RISC-V
 
