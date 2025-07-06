@@ -412,7 +412,8 @@ cat sum_1ton.c
 cat Command
 
 Using the cat command, the entire C code will be displayed on the terminal. Now run the following command to compile the code in riscv64 gcc compiler:
-![image](https://github.com/user-attachments/assets/35ccb39c-b25a-407c-afcb-2840133e0bda)
+![image](https://github.com/user-attachments/assets/9f7a12ec-6842-4a07-aefa-6d277d9e768c)
+
 
 
 riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum_1ton.o sum_1ton.c
