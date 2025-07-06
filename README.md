@@ -197,8 +197,8 @@ Each instruction in RISC-V (RV32I) is **32 bits long** and conforms to one of si
 
 | Format | Description                      | Used For                                  | Registers       | Immediate Type |
 |--------|----------------------------------|-------------------------------------------|------------------|----------------|
-| R-type | Register operations              | Arithmetic, logic, and shift operations    | rd, rs1, rs2     | No immediate   |
-| I-type | Immediate operations             | ALU operations with immediates, loads, JALR | rd, rs1         | 12-bit         |
+| R-type | Register operations              | Arithmetic, logic, and shift operations   | rd, rs1, rs2     | No immediate   |
+| I-type | Immediate operations             | ALU operations with immediates, loads, JALR | rd, rs1        | 12-bit         |
 | S-type | Store instructions               | Write data to memory                      | rs1, rs2         | 12-bit         |
 | B-type | Branch instructions              | Conditional branching                     | rs1, rs2         | 13-bit (signed)|
 | U-type | Upper immediate                  | Load upper immediate into register        | rd               | 20-bit         |
@@ -486,7 +486,7 @@ Analysing the Output Waveform of various instructions that we have covered in TA
 # Instruction 10: BEQ R0, R0, 15
 ![image](https://github.com/user-attachments/assets/787b48e3-b891-4b82-b2d7-0fe97e515e9e)
 
-### Task 6: Final Task of this internship is to implement any digital circuits using VSDSquadron Mini and check whether the building and uploading of C program file on RISCV processor works
+# Task 5: Final Task of this internship is to implement any digital circuits using VSDSquadron Mini and check whether the building and uploading of C program file on RISCV processor works
 # 🚪 Smart Door Automation using CH32V003 RISC-V SoC
 
 ## 📌 Overview
