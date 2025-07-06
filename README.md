@@ -525,7 +525,8 @@ The **Smart Door Automation** project demonstrates the integration of an **IR se
 ---
 ## Circuit Diagram:
 
-![image](https://github.com/user-attachments/assets/b901cd5a-1a4e-40c0-a475-51b3f9a58d1e)
+![WhatsApp Image 2025-06-29 at 15 33 53_e142889d](https://github.com/user-attachments/assets/a6a7b007-8483-4420-a318-2dd74f8659ee)
+
 
 
 ## 🖥️ Programming Guide
