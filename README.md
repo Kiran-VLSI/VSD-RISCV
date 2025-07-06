@@ -400,8 +400,7 @@ To the C code on your terminal, run the following command:
 gcc sum_1ton.c
 ./a.out
 C Code compiled on gcc Compiler
-![image](https://github.com/user-attachments/assets/2a4e7712-f9e3-4d18-a423-12f88d9785a0)
-
+![image](https://github.com/user-attachments/assets/7f32f6f2-0190-4f36-89d5-60c24ffd155f)
 
 RISCV based LAB
 We have to do the same compilation of our code but this time using RISCV gcc compiler. Follow the given steps:
@@ -482,7 +481,6 @@ gcc sum_1ton.c
 And to compile the code using riscv compiler, use the following command:
 
 spike pk sum_1ton.o
-![image](https://github.com/user-attachments/assets/cfb4fccc-4876-4fb6-9f3b-e3d0301cdece)
 
 Spike Simulation
 
