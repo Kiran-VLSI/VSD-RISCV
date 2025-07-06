@@ -400,7 +400,8 @@ To the C code on your terminal, run the following command:
 gcc sum_1ton.c
 ./a.out
 C Code compiled on gcc Compiler
-![Spike Simulation](https://github.com/user-attachments/assets/01325b74-8081-404c-9136-2d82e8b0e80d)
+![image](https://github.com/user-attachments/assets/2a4e7712-f9e3-4d18-a423-12f88d9785a0)
+
 
 RISCV based LAB
 We have to do the same compilation of our code but this time using RISCV gcc compiler. Follow the given steps:
@@ -411,7 +412,8 @@ cat sum_1ton.c
 cat Command
 
 Using the cat command, the entire C code will be displayed on the terminal. Now run the following command to compile the code in riscv64 gcc compiler:
-![Objdump in -O1](https://github.com/user-attachments/assets/8f7c3105-c6f5-47b9-bf82-0ede2d0980a1)
+![image](https://github.com/user-attachments/assets/35ccb39c-b25a-407c-afcb-2840133e0bda)
+
 
 riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum_1ton.o sum_1ton.c
 Open a new terminal and run the given command:
@@ -432,7 +434,78 @@ Other common options are as follows:
 -O2: More aggressive optimizations that might increase compilation time but typically provide faster and sometimes smaller code.
 -O3: Maximizes optimization more aggressively than -O2.
 -Os: Optimizes code for size. It enables all -O2 optimizations that do not typically increase code size.
+
 Here, the term more aggressive optimization in the context of compilers like GCC refers to a deeper and more complex set of transformations applied to the code in order to improve its performance and possibly reduce its size. The compiler uses more complex techniques that aims to generate faster executing code or code that occupies less memory. However, these optimizations typically increase the compilation time and can sometimes introduce bugs, making it harder to debug.
+
+# Task 4: Performing SPIKE Simulation and Debugging the C code with Interactive Debugging Mode using Spike
+
+First of all, let's install the required tools and libraries
+What is SPIKE in RISCV?
+A RISC-V ISA is a simulator, enabling the testing and analysis of RISC-V programs without the need for actual hardware.
+Spike is a free, open-source C++ simulator for the RISC-V ISA that models a RISC-V core and cache system. It can be used to run programs and a Linux kernel, and can be a starting point for running software on a RISC-V target.
+Use the following command to install SPIKE in your machine
+
+$ git clone https://github.com/riscv/riscv-isa-sim.git  
+$ cd riscv-isa-sim  
+$ mkdir build  
+$ cd build  
+$ sudo apt-get install device-tree-compiler // to install the missing dependencies   
+$ sudo apt-get install libboost-all-dev // to install the libboost library
+$ ../configure --prefix=/opt/riscv  
+$ make  
+$ sudo make install  
+$ sudo apt update  
+$ sudo apt install g++-8
+$ make CXX=g++-8  
+$ echo 'export PATH=$PATH:/opt/riscv/bin' >> ~/.bashrc
+$ source ~/.bashrc  
+
+What is pk (Proxy Kernel)?
+The RISC-V Proxy Kernel, pk , is a lightweight application execution environment that can host statically-linked RISC-V ELF binaries.
+A Proxy Kernel in the RISC-V ecosystem simplifies the interaction between complex hardware and the software running on it, making it easier to manage, test, and develop software and hardware projects.
+Use the following command to install pk in your machine
+
+Make sure you are on home directory  
+$ git clone https://github.com/riscv/riscv-pk.git  
+$ cd riscv-pk  
+$ mkdir build  
+$ cd build  
+$ ../configure --prefix=/opt/riscv --host=riscv64-unknown-elf --with-arch=rv64gc  
+$ make  
+$ sudo make install  
+Testing the SPIKE Simulator
+The target is to run the sum_1ton.c code using both gcc compiler and riscv compiler, and both of the compiler must display the same output on the terminal. So to compile the code using gcc compiler, use the following command:
+
+gcc sum_1ton.c  
+./a.out
+And to compile the code using riscv compiler, use the following command:
+
+spike pk sum_1ton.o
+![image](https://github.com/user-attachments/assets/cfb4fccc-4876-4fb6-9f3b-e3d0301cdece)
+
+Spike Simulation
+
+Following are the snapshots of RISCV Objdump with -O1 and -Ofast options
+RISCV Objdump with -O1 option
+
+Objdump in -O1
+![image](https://github.com/user-attachments/assets/c89bc8d2-99b0-42f2-ba49-a9d849f56875)
+
+
+RISCV Objdump with -Ofast option
+
+Objdump in -Ofast
+![image](https://github.com/user-attachments/assets/caae8e2b-0b2c-4c2c-9c2d-c35d2d8ad9b6)
+
+
+Debugging the Assembly Language Program of sum_1ton.c
+Open the Objdump of code by using the following command
+$ riscv64-unknown-elf-objdump -d sum_1ton.o | less  
+Open the debugger in another terminal by using the following command
+$ spike -d pk sum_1ton.o
+The debugger will be opened in the terminal. Now, debugging operations can be performed as shown in the following snapshot.
+![image](https://github.com/user-attachments/assets/5ddb196f-6fda-4f7a-8f6c-ed6dec5fa8f4)
+
 
 # Task - 5:By making use of RISCV Core: Verilog Netlist and Testbench, perform an experiment of Functional Simulation and observe the waveforms
 
